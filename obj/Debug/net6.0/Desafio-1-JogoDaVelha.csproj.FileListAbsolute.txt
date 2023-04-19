@@ -1,0 +1,15 @@
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\bin\Debug\net6.0\Desafio-1-JogoDaVelha.exe
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\bin\Debug\net6.0\Desafio-1-JogoDaVelha.deps.json
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\bin\Debug\net6.0\Desafio-1-JogoDaVelha.runtimeconfig.json
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\bin\Debug\net6.0\Desafio-1-JogoDaVelha.dll
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\bin\Debug\net6.0\Desafio-1-JogoDaVelha.pdb
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.csproj.AssemblyReference.cache
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.AssemblyInfoInputs.cache
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.AssemblyInfo.cs
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.csproj.CoreCompileInputs.cache
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.dll
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\refint\Desafio-1-JogoDaVelha.dll
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.pdb
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\Desafio-1-JogoDaVelha.genruntimeconfig.cache
+D:\Programação\CSharp\Desafio-1-JogoDaVelha\obj\Debug\net6.0\ref\Desafio-1-JogoDaVelha.dll
