@@ -41,11 +41,12 @@
         //montar o tabuleiro com valores de 1 à 9
         static void montarTabuleiro()
         {
-            for (int i = 0; i < 3; i++)
+            int tamanho = 3;
+            for (int i = 0; i < tamanho; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < tamanho; j++)
                 {
-                    tabuleiro[i, j] = $"{(i * 3) + j + 1}";
+                    tabuleiro[i, j] = ((i * tamanho) + j + 1).ToString();
                 }
             }
         }
