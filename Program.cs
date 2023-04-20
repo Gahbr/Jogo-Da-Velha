@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 
 namespace Desafio_1_JogoDaVelha
 {
@@ -6,10 +7,11 @@ namespace Desafio_1_JogoDaVelha
     {
         static string[,] tabuleiro = new string[3, 3];
         static string jogoAtivo = "Y";
+        static int contadorDeJogadas = -1;
 
         static void Main(string[] args)
         {
-            Console.Title = "DESAFIO JOGO DA VELHA";
+            Console.Title = "DESAFIO ACADEMIA .NET - JOGO DA VELHA";
 
             while (jogoAtivo == "Y")
             {
@@ -30,11 +32,16 @@ namespace Desafio_1_JogoDaVelha
                         jogoAtivo = "N";
                         break;
                     }
+
+                    if (contadorDeJogadas == 8) break;
                 }
 
                 if (verificaVitoria()) Console.WriteLine("Parabéns! Você venceu!");
-                else  Console.WriteLine("Empate!");
-
+                else
+                {
+                    Console.WriteLine("Empate!");
+                    break;
+                }
             }
 
             mensagemFinal();
@@ -53,12 +60,6 @@ namespace Desafio_1_JogoDaVelha
             }
         }
 
-
-        static void mensagemFinal()
-        {
-            Console.WriteLine("Desafio Academia .NET ATOS.");
-        }
-
         static void receberInput(string jogador)
         {
             Console.Clear();
@@ -70,6 +71,8 @@ namespace Desafio_1_JogoDaVelha
             do
             {
                 imprimirTabuleiro();
+                if (contadorDeJogadas == 8) break;
+
                 Console.Write("Digite um número :");
 
                 //valida a entrada de dados
@@ -84,26 +87,27 @@ namespace Desafio_1_JogoDaVelha
                     if (input == 1 || input == 2 || input == 3) linha = 0;
                     if (input == 4 || input == 5 || input == 6) linha = 1;
                     if (input == 7 || input == 8 || input == 9) linha = 2;
-                    
+
                     if (input == 1 || input == 4 || input == 7) coluna = 0;
                     if (input == 2 || input == 5 || input == 8) coluna = 1;
                     if (input == 3 || input == 6 || input == 9) coluna = 2;
-                   
 
                     validaInput = tabuleiro[linha, coluna] != "X" && tabuleiro[linha, coluna] != "O";
-                    tabuleiro[linha, coluna] = jogador;
 
-                    if (!validaInput)
+                    if (validaInput)
                     {
-                        Console.WriteLine("Posição já escolhida. Escolha outro número.");
+                        tabuleiro[linha, coluna] = jogador;
+                        contadorDeJogadas++;
                     }
+
+                    if (!validaInput) Console.WriteLine("Posição já escolhida. Escolha outro número.");
                 }
                 else
                 {
                     Console.WriteLine("Dado inválido. Escolha um número válido de 1-9.");
+                    
                 }
             } while (!validaInput);
-
         }
 
         static void imprimirTabuleiro()
@@ -121,7 +125,6 @@ namespace Desafio_1_JogoDaVelha
             Console.WriteLine();
             Console.WriteLine("_____________\n");
         }
-
 
         static bool verificaVitoria()
         {
@@ -141,6 +144,11 @@ namespace Desafio_1_JogoDaVelha
             if (tabuleiro[0, 2] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 0]) return true;
 
             return false;
+        }
+
+        static void mensagemFinal()
+        {
+            Console.WriteLine("Desafio Academia .NET ATOS.");
         }
 
     }
