@@ -1,18 +1,16 @@
-﻿using System;
-using System.Xml;
-
-namespace Desafio_1_JogoDaVelha
+﻿namespace Desafio_1_JogoDaVelha
 {
     internal class Program
     {
+        static string tipoJogo = "";
         static string[,] tabuleiro = new string[3, 3];
         static string jogoAtivo = "Y";
         static int contadorDeJogadas = -1;
 
         static void Main(string[] args)
         {
-            Console.Title = "DESAFIO ACADEMIA .NET - JOGO DA VELHA";
-
+            telaInicial();
+            
             while (jogoAtivo == "Y")
             {
                 montarTabuleiro();
@@ -26,7 +24,21 @@ namespace Desafio_1_JogoDaVelha
                         break;
                     }
 
-                    receberInput("O");
+                    if(contadorDeJogadas == 8)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if(int.Parse(tipoJogo) == 1)
+                        {
+                            receberInput("O");
+                        } else if (int.Parse(tipoJogo) == 2)
+                        {
+                            fazerJogadaMaquina();
+                        }
+                    }
+
                     if (verificaVitoria())
                     {
                         jogoAtivo = "N";
@@ -146,9 +158,51 @@ namespace Desafio_1_JogoDaVelha
             return false;
         }
 
+        static void fazerJogadaMaquina()
+        {
+            Console.WriteLine("\nVez da máquina:");
+
+            bool jogadaValida = false;
+            while (!jogadaValida)
+            {
+                Random rnd = new Random();
+                int linha = rnd.Next(3);
+                int coluna = rnd.Next(3);
+
+                if (tabuleiro[linha, coluna] != "X" && tabuleiro[linha, coluna] != "O")
+                {
+                    tabuleiro[linha, coluna] = "O";
+                    jogadaValida = true;
+                }
+            }
+
+            contadorDeJogadas++;
+        }
         static void mensagemFinal()
         {
             Console.WriteLine("Desafio Academia .NET ATOS.");
+        }
+
+        static void telaInicial()
+        {
+            bool validaInput = false;
+
+            while (!validaInput)
+            {
+                Console.Title = "DESAFIO ACADEMIA .NET - JOGO DA VELHA";
+                Console.WriteLine("----JOGO DA VELHA---.\n");
+                Console.WriteLine("Escolha seu tipo de jogo:\n1 - PvP\n2 - PC.");
+
+                tipoJogo = Console.ReadLine();
+                validaInput = int.TryParse(tipoJogo, out int input);
+
+                if (!validaInput || int.Parse(tipoJogo) > 2 || int.Parse(tipoJogo) < 1)
+                {
+                    Console.WriteLine("Dado inválido. Escolha a opção 1 ou 2.");
+                    validaInput = false;
+                }
+            }
+            Console.Clear();
         }
 
     }
