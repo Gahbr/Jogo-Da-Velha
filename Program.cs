@@ -47,12 +47,20 @@
 
                 if (verificaVitoria())
                 {
+                    Console.Clear();
+                    Console.WriteLine("Resultado final:");
+                    imprimirTabuleiro(); 
+
                     Console.WriteLine("Parabéns! Você venceu!");
                     jogarNovamente();
 
                 }
                 else
                 {
+                    Console.Clear();
+                    Console.WriteLine("Resultado final:");
+                    imprimirTabuleiro();
+
                     Console.WriteLine("Empate!");
                     jogarNovamente();
                     
