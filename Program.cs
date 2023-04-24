@@ -5,6 +5,7 @@
         static string tipoJogo = "";
         static string[,] tabuleiro = new string[3, 3];
         static string jogoAtivo = "Y";
+        static string jogarNovamenteInput = "";
         static int contadorDeJogadas = -1;
 
         static void Main(string[] args)
@@ -24,16 +25,14 @@
                         break;
                     }
 
-                    if(contadorDeJogadas == 8)
-                    {
-                        break;
-                    }
+                    if (contadorDeJogadas == 8) break;
                     else
                     {
-                        if(int.Parse(tipoJogo) == 1)
+                        if (int.Parse(tipoJogo) == 1)
                         {
                             receberInput("O");
-                        } else if (int.Parse(tipoJogo) == 2)
+                        }
+                        else if (int.Parse(tipoJogo) == 2)
                         {
                             fazerJogadaMaquina();
                         }
@@ -44,19 +43,22 @@
                         jogoAtivo = "N";
                         break;
                     }
-
-                    if (contadorDeJogadas == 8) break;
                 }
 
-                if (verificaVitoria()) Console.WriteLine("Parabéns! Você venceu!");
+                if (verificaVitoria())
+                {
+                    Console.WriteLine("Parabéns! Você venceu!");
+                    jogarNovamente();
+
+                }
                 else
                 {
                     Console.WriteLine("Empate!");
-                    break;
+                    jogarNovamente();
+                    
+                    if (jogarNovamenteInput.ToUpper() == "N") break;
                 }
             }
-
-            mensagemFinal();
         }
 
         //montar o tabuleiro com valores de 1 à 9
@@ -178,10 +180,6 @@
 
             contadorDeJogadas++;
         }
-        static void mensagemFinal()
-        {
-            Console.WriteLine("Desafio Academia .NET ATOS.");
-        }
 
         static void telaInicial()
         {
@@ -203,6 +201,26 @@
                 }
             }
             Console.Clear();
+        }
+
+        static void jogarNovamente()
+        {
+            Console.WriteLine("Deseja jogar novamente? S ou N");
+            string resetGame = Console.ReadLine();
+
+            if (resetGame.ToUpper() == "S")
+            {
+                contadorDeJogadas = -1;
+                jogoAtivo = "Y";
+                jogarNovamenteInput = "Y";
+            }
+            else
+            {
+                Console.WriteLine("\n||Desafio Academia .NET ATOS.||");
+                Console.WriteLine("||Obrigado por jogar!||");
+                jogoAtivo = "N";
+                jogarNovamenteInput = "N";
+            }
         }
 
     }
